@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Ronquillo | Tie-Dye Artisan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Add this in the <head> section if Font Awesome is not yet included -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --electric-blue: #0a7aff;
+            --hot-pink: #ff2d75;
+            --lime-green: #a2ff0a;
+            --sunny-yellow: #ffe600;
+            --deep-purple: #8a2be2;
+            --vibrant-orange: #ff6b00;
+        }
+        
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Tie-Dye Header */
+        header {
+            background: linear-gradient(45deg, var(--electric-blue), var(--hot-pink), var(--lime-green), var(--sunny-yellow));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, transparent 20%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.3) 80%, transparent 80%, transparent);
+            background-size: 3em 3em;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            color: white;
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .nav-link {
+            margin: 0 1.5rem;
+            color: #555;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--deep-purple);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--electric-blue), var(--hot-pink));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1583744946564-b52d01e2da64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(45deg, var(--electric-blue), var(--hot-pink));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Products Section */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--electric-blue), var(--hot-pink), var(--lime-green), var(--sunny-yellow));
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: var(--deep-purple);
+            font-size: 1.2rem;
+        }
+
+        .product-colors {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(45deg, #f5f5f5, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138,43,226,0.05) 0%, transparent 70%);
+            animation: rotate 60s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://th.bing.com/th/id/R.ecb9ab99841233c95662d5b179c5264e?rik=gsDfJwZYN2cTNw&riu=http%3a%2f%2fcover-alls.com%2fcdn%2fshop%2fproducts%2ftie-dye-peace-sign-717318.jpg%3fv%3d1683062592&ehk=LrxYmSJc2w%2bVlemS5bqZ30nt%2bVgu1k6kL7tfnLXFlus%3d&risl=&pid=ImgRaw&r=0') center/cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid var(--hot-pink);
+            border-radius: 15px;
+            z-index: -1;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.02); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #333, #111);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--hot-pink);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Drip Effect */
+        .drip {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 100px;
+            background: var(--hot-pink);
+            border-radius: 0 0 10px 10px;
+            animation: drip 8s linear infinite;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        @keyframes drip {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(calc(100vh + 100px)); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                margin: 0.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding: 2rem 0 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Random Color Drips -->
+    <div class="drip" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="drip" style="left: 15%; animation-delay: 2s; background: var(--electric-blue);"></div>
+    <div class="drip" style="left: 85%; animation-delay: 4s; background: var(--lime-green);"></div>
+    <div class="drip" style="left: 75%; animation-delay: 6s; background: var(--sunny-yellow);"></div>
+
+    <header>
+        <h1 class="logo">Joseph Ronquillo</h1>
+        <p class="tagline">Handcrafted Tie-Dye Artistry</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#products" class="nav-link">Shop</a>
+            <a href="#about" class="nav-link">About</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Wear the Rainbow</h1>
+            <p class="hero-subtitle">Unique hand-dyed apparel that expresses your vibrant spirit</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <h2 class="section-title">Featured Creations</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://www.thefunkystitch.com/wp-content/uploads/2020/04/redwhiteblue-tie-dye-1024x942.jpg');"></div>
+                <div class="product-info">
+                    <h3 class="product-title"></h3>
+                    <p class="product-price"></p>
+                    <div class="product-colors">
+                        <div class="color-dot" style="background: var(--electric-blue);"></div>
+                        <div class="color-dot" style="background: var(--hot-pink);"></div>
+                        <div class="color-dot" style="background: var(--deep-purple);"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://i.etsystatic.com/6763617/r/il/b6bbc8/1237679885/il_570xN.1237679885_gl3c.jpg');"></div>
+                <div class="product-info">
+                    <h3 class="product-title"></h3>
+                    <p class="product-price"></p>
+                    <div class="product-colors">
+                        <div class="color-dot" style="background: var(--sunny-yellow);"></div>
+                        <div class="color-dot" style="background: var(--vibrant-orange);"></div>
+                        <div class="color-dot" style="background: var(--hot-pink);"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://i.etsystatic.com/6763617/r/il/164e1a/1915518483/il_600x600.1915518483_pnnk.jpg');"></div>
+                <div class="product-info">
+                    <h3 class="product-title"></h3>
+                    <p class="product-price"></p>
+                    <div class="product-colors">
+                        <div class="color-dot" style="background: var(--deep-purple);"></div>
+                        <div class="color-dot" style="background: var(--electric-blue);"></div>
+                        <div class="color-dot" style="background: var(--hot-pink);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <h2 class="section-title">The Artist Behind the Colors</h2>
+        <div class="about-content">
+            <div class="about-image"></div>
+            <div class="about-text">
+                <h3>Hi, I'm Joseph</h3>
+                <p>For over 15 years, I've been perfecting the art of tie-dye, transforming simple fabrics into wearable masterpieces. Each piece is handcrafted with care in my Studio using eco-friendly dyes and premium fabrics.</p>
+                <p>My inspiration comes from the natural beauty of the West Coast - the ocean waves, desert sunsets, and vibrant street art that surrounds me. Every swirl and pattern tells a story.</p>
+                <p>When you wear one of my creations, you're not just wearing a shirt - you're wearing a unique piece of art that celebrates color, creativity, and individuality.</p>
+                <a href="#contact" class="btn" style="margin-top: 1rem;">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Joseph Ronquillo</div>
+        <p>Handcrafted tie-dye apparel that makes the world more colorful</p>
+        <h4>Screen shot ang napili mo Tie Dye shirt then send</h4>
+        <h4>Then message in Facebook Page click the FACEBOOK button</h4>
+        <h3>↓</h3>
+        <div class="social-links">
+            <a href="https://www.facebook.com/cgvdfgf" class="social-link" style="font-size: 24px; color: #3b5998;">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+        <p class="copyright">© 2025 Joseph Ronquillo Tie-Dye. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Create additional random drips
+        document.addEventListener('DOMContentLoaded', function() {
+            for (let i = 0; i < 5; i++) {
+                createDrip();
+            }
+        });
+
+        function createDrip() {
+            const drip = document.createElement('div');
+            drip.classList.add('drip');
+            
+            // Random position
+            const left = Math.random() * 100;
+            drip.style.left = `${left}%`;
+            
+            // Random color
+            const colors = [
+                'var(--electric-blue)',
+                'var(--hot-pink)',
+                'var(--lime-green)',
+                'var(--sunny-yellow)',
+                'var(--deep-purple)',
+                'var(--vibrant-orange)'
+            ];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            drip.style.background = randomColor;
+            
+            // Random animation
+            const delay = Math.random() * 8;
+            const duration = 5 + Math.random() * 10;
+            drip.style.animation = `drip ${duration}s linear ${delay}s infinite`;
+            
+            document.body.appendChild(drip);
+        }
+    </script>
+</body>
+</html>
